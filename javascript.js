@@ -7,7 +7,7 @@ function getComputerChoice() {
   } else if (computerChoice === 1) {
     return "paper";
   } else {
-    return "sccissors";
+    return "scissors";
   }
 }
 
@@ -25,32 +25,57 @@ let computerScore = 0;
 //Create function with two parameters: human and computer choice
 function playRound(humanChoice, computerChoice) {
   //Make the humanChoice parameter case-insensitive
-  humanChoice = humanChoice.toLowerCase();
+  try {
+    humanChoice = humanChoice.toLowerCase();
+  } catch (error) {
+    console.log("You have to choose");
+  }
   //Display the choices
   console.log(`Human: ${humanChoice}`);
   console.log(`Computer: ${computerChoice}`);
 
   //Implement the game logic (use switch)
-  if (humanChoice === "rock" && computerChoice === "paper") {
-    console.log("You lost!");
-    computerScore++;
-  } else if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log("You won!");
-  } else if (humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("You lost!");
-  } else if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("You won!");
-  } else if (humanChoice === "paper" && computerChoice === "scissors") {
-    console.log("You lost!");
-  } else if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("You lost!");
-  } else if (humanChoice === computerChoice) {
-    console.log("It's a tie!");
-  } else {
-    console.log("You have to pick between rock, paper and scissors");
-  }
+  switch (humanChoice) {
+    case "rock":
+      if (computerChoice === "paper") {
+        console.log("You lost!");
+        computerScore++;
+      } else if (computerChoice === "scissors") {
+        console.log("You won!");
+        humanScore++;
+      } else {
+        console.log("It's a tie!");
+      }
+      break;
 
-  console.log(computerScore);
+    case "paper":
+      if (computerChoice === "rock") {
+        console.log("You won!");
+        humanScore++;
+      } else if (computerChoice === "scissors") {
+        console.log("You lost!");
+        computerScore++;
+      } else {
+        console.log("It's a tie!");
+      }
+      break;
+
+    case "scissors":
+      if (computerChoice === "rock") {
+        console.log("You lost!");
+        computerScore++;
+      } else if (computerChoice === "paper") {
+        console.log("You won!");
+        humanScore++;
+      } else {
+        console.log("It's a tie!");
+      }
+      break;
+
+    default:
+      console.log("You have to choose!");
+      break;
+  }
 
   //Increment the winners score
   //Display if human won or lost
