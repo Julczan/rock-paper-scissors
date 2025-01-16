@@ -24,14 +24,43 @@ let computerScore = 0;
 // 5. Logic to play a single round:
 //Create function with two parameters: human and computer choice
 function playRound(humanChoice, computerChoice) {
+  //Make the humanChoice parameter case-insensitive
+  humanChoice = humanChoice.toLowerCase();
+  //Display the choices
+  console.log(`Human: ${humanChoice}`);
+  console.log(`Computer: ${computerChoice}`);
+
+  //Implement the game logic (use switch)
+  if (humanChoice === "rock" && computerChoice === "paper") {
+    console.log("You lost!");
+    computerScore++;
+  } else if (humanChoice === "paper" && computerChoice === "rock") {
+    console.log("You won!");
+  } else if (humanChoice === "scissors" && computerChoice === "rock") {
+    console.log("You lost!");
+  } else if (humanChoice === "rock" && computerChoice === "scissors") {
+    console.log("You won!");
+  } else if (humanChoice === "paper" && computerChoice === "scissors") {
+    console.log("You lost!");
+  } else if (humanChoice === "scissors" && computerChoice === "paper") {
+    console.log("You lost!");
+  } else if (humanChoice === computerChoice) {
+    console.log("It's a tie!");
+  } else {
+    console.log("You have to pick between rock, paper and scissors");
+  }
+
+  console.log(computerScore);
+
   //Increment the winners score
+  //Display if human won or lost
 }
 
-//Make the humanChoice parameter case-insensitive
 //Get human and computer choices : Create two variables in a global scope
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-//Display if human won or lost
+playRound(humanSelection, computerSelection);
+
 // 6. Logic to play the entire game: 5 rounds:
 //Soon
