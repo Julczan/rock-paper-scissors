@@ -96,15 +96,3 @@ function playGame() {
 }
 
 playGame();
-
-//Calling the function 5 times
-
-// 6. Logic to play the entire game (5 rounds):
-
-//Return the winner of the round
-//Make a function to cound rounds:
-//If the counter reaches 5 - end the game and display the winner
-//Logic to count the wins and reveal the winner
-//Human and computer score gets incremented
-//Return the winner
-//Create a function that counts the amount of wins and checks what score is higher then displays the winner
