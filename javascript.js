@@ -21,7 +21,6 @@ function playGame() {
   // 4. Create two variables that tracks player and computer score
   let humanScore = 0;
   let computerScore = 0;
-  let winner = "";
 
   // 5. Logic to play a single round:
   //Create function with two parameters: human and computer choice
@@ -78,9 +77,21 @@ function playGame() {
         console.log("You have to choose!");
         break;
     }
+
+    console.log(`Computer score: ${computerScore}`);
+    console.log(`Human score: ${humanScore}`);
   }
+  //Call the get functions 5 times
   for (i = 0; i < 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
+  }
+  //Declare the winner
+  if (humanScore > computerScore) {
+    console.log("You won! Congratulations!");
+  } else if (humanScore < computerScore) {
+    console.log("You lost! Computer for the win!");
+  } else {
+    console.log("It's a tie! Play again");
   }
 }
 
@@ -89,10 +100,11 @@ playGame();
 //Calling the function 5 times
 
 // 6. Logic to play the entire game (5 rounds):
-//Call the get functions 5 times
+
 //Return the winner of the round
 //Make a function to cound rounds:
 //If the counter reaches 5 - end the game and display the winner
-//for loop:
-//number of games increments until it reaches 5
-//variable - gameCount
+//Logic to count the wins and reveal the winner
+//Human and computer score gets incremented
+//Return the winner
+//Create a function that counts the amount of wins and checks what score is higher then displays the winner
