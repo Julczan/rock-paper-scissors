@@ -17,65 +17,58 @@ function getComputerChoice() {
 // 4. Create two variables that tracks player and computer score
 let humanScore = 0;
 let computerScore = 0;
+const result = document.querySelector("#result");
 
 // 5. Logic to play a single round:
 //Create function with two parameters: human and computer choice
 function playRound(humanChoice, computerChoice) {
-  //Make the humanChoice parameter case-insensitive
-  try {
-    humanChoice = humanChoice.toLowerCase();
-  } catch (error) {
-    console.log("You have to choose");
-  }
-  //Display the choices
-  console.log(`Human: ${humanChoice}`);
-  console.log(`Computer: ${computerChoice}`);
-
+  result.textContent = `Human choice: ${humanChoice} `;
+  result.textContent += `Computer choice: ${computerChoice}`;
   //Implement the game logic (use switch)
   switch (humanChoice) {
     case "rock":
       if (computerChoice === "paper") {
-        console.log("You lost!");
+        result.textContent += "You lost!";
         computerScore++;
       } else if (computerChoice === "scissors") {
-        console.log("You won!");
+        result.textContent += "You won!";
         humanScore++;
       } else {
-        console.log("It's a tie!");
+        result.textContent += "It's a tie!";
       }
       break;
 
     case "paper":
       if (computerChoice === "rock") {
-        console.log("You won!");
+        result.textContent += "You won!";
         humanScore++;
       } else if (computerChoice === "scissors") {
-        console.log("You lost!");
+        result.textContent += "You lost!";
         computerScore++;
       } else {
-        console.log("It's a tie!");
+        result.textContent += "It's a tie!";
       }
       break;
 
     case "scissors":
       if (computerChoice === "rock") {
-        console.log("You lost!");
+        result.textContent += "You lost!";
         computerScore++;
       } else if (computerChoice === "paper") {
-        console.log("You won!");
+        result.textContent += "You won!";
         humanScore++;
       } else {
-        console.log("It's a tie!");
+        result.textContent += "It's a tie!";
       }
       break;
 
     default:
-      console.log("You have to choose!");
+      result.textContent += "You have to choose!";
       break;
   }
 
-  console.log(`Computer score: ${computerScore}`);
-  console.log(`Human score: ${humanScore}`);
+  result.textContent += `Computer score: ${computerScore}`;
+  result.textContent += `Human score: ${humanScore}`;
 }
 
 //Get the human choice and play a round with it
