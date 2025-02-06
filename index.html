@@ -8,6 +8,25 @@
       body {
         background-color: black;
         color: white;
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #buttons-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #result,
+      #winner {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+      button {
+        background-color: aqua;
+        border-radius: 20px;
       }
     </style>
   </head>
@@ -18,7 +37,10 @@
       <button id="scissors">SCISSORS</button>
     </div>
 
-    <div id="result"></div>
+    <div>
+      <span id="result"></span>
+    </div>
+    <div id="winner"></div>
     <script src="javascript.js"></script>
   </body>
 </html>

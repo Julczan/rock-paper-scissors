@@ -18,20 +18,19 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 const result = document.querySelector("#result");
+const winner = document.querySelector("#winner");
 
 // 5. Logic to play a single round:
 //Create function with two parameters: human and computer choice
 function playRound(humanChoice, computerChoice) {
-  result.textContent = `Human choice: ${humanChoice} `;
-  result.textContent += `Computer choice: ${computerChoice}`;
+  result.textContent = "Human choice: " + humanChoice;
+  result.textContent += "Computer choice: " + computerChoice;
   //Implement the game logic (use switch)
   switch (humanChoice) {
     case "rock":
       if (computerChoice === "paper") {
-        result.textContent += "You lost!";
         computerScore++;
       } else if (computerChoice === "scissors") {
-        result.textContent += "You won!";
         humanScore++;
       } else {
         result.textContent += "It's a tie!";
@@ -40,10 +39,8 @@ function playRound(humanChoice, computerChoice) {
 
     case "paper":
       if (computerChoice === "rock") {
-        result.textContent += "You won!";
         humanScore++;
       } else if (computerChoice === "scissors") {
-        result.textContent += "You lost!";
         computerScore++;
       } else {
         result.textContent += "It's a tie!";
@@ -52,10 +49,8 @@ function playRound(humanChoice, computerChoice) {
 
     case "scissors":
       if (computerChoice === "rock") {
-        result.textContent += "You lost!";
         computerScore++;
       } else if (computerChoice === "paper") {
-        result.textContent += "You won!";
         humanScore++;
       } else {
         result.textContent += "It's a tie!";
@@ -69,6 +64,13 @@ function playRound(humanChoice, computerChoice) {
 
   result.textContent += `Computer score: ${computerScore}`;
   result.textContent += `Human score: ${humanScore}`;
+
+  // if score reaches 5 - announce a winner of the game
+  if (humanScore === 5) {
+    winner.textContent = "Human won!";
+  } else if (computerScore === 5) {
+    winner.textContent = "Computer won!";
+  }
 }
 
 //Get the human choice and play a round with it
