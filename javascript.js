@@ -17,53 +17,59 @@ function getComputerChoice() {
 // 4. Create two variables that tracks player and computer score
 let humanScore = 0;
 let computerScore = 0;
+const choice = document.querySelector("#choice");
 const result = document.querySelector("#result");
 const winner = document.querySelector("#winner");
+const message = document.querySelector("#message");
 
 // 5. Logic to play a single round:
 //Create function with two parameters: human and computer choice
 function playRound(humanChoice, computerChoice) {
-  result.textContent = "Human choice: " + humanChoice;
-  result.textContent += "Computer choice: " + computerChoice;
+  choice.textContent = `Human choice: ${humanChoice}, Computer choice: ${computerChoice}`;
   //Implement the game logic (use switch)
   switch (humanChoice) {
     case "rock":
       if (computerChoice === "paper") {
+        message.textContent = "You lost!";
         computerScore++;
       } else if (computerChoice === "scissors") {
+        message.textContent = "You won!";
         humanScore++;
       } else {
-        result.textContent += "It's a tie!";
+        message.textContent = "It's a tie!";
       }
       break;
 
     case "paper":
       if (computerChoice === "rock") {
+        message.textContent = "You won!";
         humanScore++;
       } else if (computerChoice === "scissors") {
+        message.textContent = "You lost!";
         computerScore++;
       } else {
-        result.textContent += "It's a tie!";
+        message.textContent = "It's a tie!";
       }
       break;
 
     case "scissors":
       if (computerChoice === "rock") {
+        message.textContent = "You lost!";
         computerScore++;
       } else if (computerChoice === "paper") {
+        message.textContent = "You won!";
+
         humanScore++;
       } else {
-        result.textContent += "It's a tie!";
+        message.textContent = "It's a tie!";
       }
       break;
 
     default:
-      result.textContent += "You have to choose!";
+      message.textContent += "You have to choose!";
       break;
   }
-
-  result.textContent += `Computer score: ${computerScore}`;
-  result.textContent += `Human score: ${humanScore}`;
+  result.textContent = `Human score: ${humanScore}, Computer score: ${computerScore}`;
 
   // if score reaches 5 - announce a winner of the game
   if (humanScore === 5) {

@@ -18,15 +18,15 @@
         justify-content: center;
         align-items: center;
       }
-      #result,
-      #winner {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-      }
       button {
+        font-size: large;
         background-color: aqua;
         border-radius: 20px;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     </style>
   </head>
@@ -36,11 +36,13 @@
       <button id="paper">PAPER</button>
       <button id="scissors">SCISSORS</button>
     </div>
-
-    <div>
-      <span id="result"></span>
+    <div id="container">
+      <div id="choice"></div>
+      <div id="result"></div>
+      <div id="message"></div>
+      <div id="winner"></div>
     </div>
-    <div id="winner"></div>
+
     <script src="javascript.js"></script>
   </body>
 </html>
